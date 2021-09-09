@@ -1,0 +1,8 @@
+README.md
+{{ if (hasKey . "firefox") | not }}
+.mozilla
+{{- end }}
+
+{{ if (hasKey . "git") | not }}
+.gitconfig
+{{- end }}

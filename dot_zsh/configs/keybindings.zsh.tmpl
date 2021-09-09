@@ -1,0 +1,36 @@
+bindkey -v  # vim bindings
+
+# Correct various commond binding issues
+bindkey '\e[3~' delete-char
+
+# Home/End keys
+bindkey '\e[1~' beginning-of-line
+bindkey '\e[4~' end-of-line
+bindkey '\e[H' beginning-of-line
+bindkey '\e[F' end-of-line
+
+# Ctrl + arrow to go back/forward a word at a time in a command
+bindkey '\e[1;5D' backward-word
+bindkey '\e[1;5C' forward-word
+
+#
+# Search history with partial completion
+#
+autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+
+{{ if (eq .chezmoi.os "darwin") }}
+    bindkey '^[[A' history-beginning-search-backward
+    bindkey '^[[B' history-beginning-search-forward
+{{ else if (eq .chezmoi.os "linux") }}
+    [[ -n "${key[Control-Left]}"  ]] && bindkey -- "${key[Control-Left]}"  backward-word
+    [[ -n "${key[Control-Right]}" ]] && bindkey -- "${key[Control-Right]}" forward-word
+    [[ -n "${key[Up]}"   ]] && bindkey -- "${key[Up]}" up-line-or-beginning-search
+    [[ -n "${key[Down]}" ]] && bindkey -- "${key[Down]}" down-line-or-beginning-search
+{{- end }}
+
+bindkey '\e[A' up-line-or-beginning-search
+bindkey '\e[B' down-line-or-beginning-search
+
+bindkey '^R' history-incremental-search-backward

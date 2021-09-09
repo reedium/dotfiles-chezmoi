@@ -1,0 +1,6 @@
+export TMUX_PLUGIN_ENABLE="true"
+
+{{- if (ne .chezmoi.os "darwin") }}
+export GIT_ASKPASS='/usr/bin/ksshaskpass'
+export SSH_ASKPASS='/usr/bin/ksshaskpass'
+{{- end }}

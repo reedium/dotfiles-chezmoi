@@ -1,0 +1,39 @@
+[submodule "dot_vim/bundle/gruvbox"]
+	path = dot_vim/bundle/gruvbox
+	url = https://github.com/morhetz/gruvbox.git
+[submodule "dot_vim/bundle/indentLine"]
+	path = dot_vim/bundle/indentLine
+	url = https://github.com/Yggdroot/indentLine.git
+[submodule "dot_vim/bundle/lightline.vim"]
+	path = dot_vim/bundle/lightline.vim
+	url = https://github.com/itchyny/lightline.vim.git
+[submodule "dot_vim/bundle/nerdcommenter"]
+	path = dot_vim/bundle/nerdcommenter
+	url = https://github.com/preservim/nerdcommenter.git
+[submodule "dot_vim/bundle/nerdtree"]
+	path = dot_vim/bundle/nerdtree
+	url = https://github.com/preservim/nerdtree.git
+[submodule "dot_vim/bundle/python-syntax"]
+	path = dot_vim/bundle/python-syntax
+	url = https://github.com/hdima/python-syntax.git
+[submodule "dot_vim/bundle/tabular"]
+	path = dot_vim/bundle/tabular
+	url = https://github.com/godlygeek/tabular.git
+[submodule "dot_vim/bundle/vim-indent-guides"]
+	path = dot_vim/bundle/vim-indent-guides
+	url = https://github.com/nathanaelkane/vim-indent-guides.git
+[submodule "dot_vim/bundle/vim-markdown-toc"]
+	path = dot_vim/bundle/vim-markdown-toc
+	url = https://github.com/mzlogin/vim-markdown-toc.git
+[submodule "dot_vim/bundle/vim-rainbow"]
+	path = dot_vim/bundle/vim-rainbow
+	url = https://github.com/frazrepo/vim-rainbow.git
+[submodule "dot_vim/bundle/vim-surround"]
+	path = dot_vim/bundle/vim-surround
+	url = https://github.com/tpope/vim-surround.git
+[submodule "dot_vim/pack/dist/opt/vim-matchit"]
+	path = dot_vim/pack/dist/opt/vim-matchit
+	url = https://github.com/adelarsq/vim-matchit.git
+[submodule "dot_vim/pack/git-plugins/start/ale"]
+	path = dot_vim/pack/git-plugins/start/ale
+	url = https://github.com/dense-analysis/ale.git

@@ -1,0 +1,236 @@
+/*
+    My custom defined user.js browser settings for Firefox
+
+    ln -s ~/data/configs/browser.configs/user.js ~/.mozilla/firefox/<profile-folder>/user.js
+*/
+
+/*******************************************************************************
+ * SECTION: History Related                                                    *
+ *******************************************************************************/
+// PREF: Clear various settings when Firefox closes
+// user_pref("privacy.clearOnShutdown.cookies",			true);
+user_pref("privacy.clearOnShutdown.downloads",			true);
+user_pref("privacy.clearOnShutdown.formdata",			true);
+user_pref("privacy.clearOnShutdown.offlineApps",		true);
+user_pref("privacy.sanitize.sanitizeOnShutdown",		true);
+// user_pref("privacy.clearOnShutdown.cache",			    true);
+// user_pref("privacy.clearOnShutdown.history",			true);
+// user_pref("privacy.clearOnShutdown.sessions",			true);
+// user_pref("privacy.clearOnShutdown.openWindows",		true);
+
+// PREF: Clear everything but "Site Preferences" in "Clear Recent History"
+user_pref("privacy.cpd.offlineApps",				true);
+// user_pref("privacy.cpd.cache",					true);
+// user_pref("privacy.cpd.cookies",				true);
+user_pref("privacy.cpd.downloads",				true);
+user_pref("privacy.cpd.formdata",				true);
+// user_pref("privacy.cpd.history",				true);
+// user_pref("privacy.cpd.sessions",				true);
+
+// PREF: Set time range to "Everything" as default in "Clear Recent History"
+user_pref("privacy.sanitize.timeSpan",				0);
+
+// PREF: Disable password manager (use an external password manager!)
+user_pref("signon.rememberSignons",				false);
+
+// PREF: Require manual intervention to autofill known username/passwords sign-in forms
+user_pref("signon.autofillForms",				false);
+
+
+
+/*******************************************************************************
+ * SECTION: UI/Theme related                                                    *
+ *******************************************************************************/
+// Allow for loading of userChrome.css and userContent.css
+user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
+
+// Fill SVG Color
+user_pref("svg.context-properties.content.enabled", true);
+
+// CSS Blur Filter - 88 Above
+user_pref("layout.css.backdrop-filter.enabled", true);
+
+// Restore Compact Mode - 89 Above
+user_pref("browser.compactmode.show", true);
+
+// Enable closetab to always be displayed
+user_pref("browser.tabs.tabMinWidth", 0);
+user_pref("browser.tabs.tabClipWidth", 0);
+
+
+
+/*******************************************************************************
+ * SECTION: Omni-Bar Related                                                    *
+ *******************************************************************************/
+// PREF: Don't trim HTTP off of URLs in the address bar.
+user_pref("browser.urlbar.trimURLs",				false);
+
+// PREF: Do not submit invalid URIs entered in the address bar to the default search engine
+//  This breaks searching in the omnibar without a shortcut
+// user_pref("keyword.enabled",                 false);
+
+// PREF: Don't try to guess domain names when entering an invalid domain name in URL bar
+user_pref("browser.fixup.alternate.enabled",			false);
+
+// PREF: When browser.fixup.alternate.enabled is enabled, strip password from 'user:password@...' URLs
+user_pref("browser.fixup.hide_user_pass", true);
+
+// PREF: Disable Displaying Javascript in History URLs
+user_pref("browser.urlbar.filter.javascript",			true);
+
+// PREF: Disable "Provide search suggestions" in the omni bar (not history suggestions)
+user_pref("browser.search.suggest.enabled",			false);
+
+// PREF: Disable "Show search suggestions in location bar results"
+user_pref("browser.urlbar.suggest.searches",			false);
+
+// PREF: Disable form autofill, don't save information entered in web page forms and the Search Bar
+// user_pref("browser.formfill.enable",				false);
+
+// PREF: Disable inline autocomplete in URL bar
+// user_pref("browser.urlbar.autoFill",				false);
+// user_pref("browser.urlbar.autoFill.typed",			false);
+
+// PREF: Disable URL bar autocomplete and history/bookmarks suggestions dropdown
+// user_pref("browser.urlbar.autocomplete.enabled",		false);
+
+
+/*******************************************************************************
+ * SECTION: Misc                                                               *
+ *******************************************************************************/
+// PREF: When browser pings are enabled, only allow pinging the same host as the origin page
+user_pref("browser.send_pings.require_same_host",        true);
+
+// PREF: Disable remote debugging
+user_pref("devtools.debugger.remote-enabled",            false);
+user_pref("devtools.chrome.enabled",             false);
+user_pref("devtools.debugger.force-local",           true);
+
+// PREF: Do not automatically send selection to clipboard on some Linux platforms
+user_pref("clipboard.autocopy",                  false);
+
+{{ if (hasKey . "firefox") }}
+// Chezmoi defined configs
+
+{{ if (hasKey .firefox "bookmarks") }}
+// PREF: Export bookmarks to HTML automatically when closing Firefox (disabled)
+user_pref("browser.bookmarks.autoExportHTML", 				true);
+user_pref("browser.bookmarks.file",	{{ .firefox.bookmarks | quote }});
+user_pref("browser.bookmarks.max_backups", 5);
+{{- end }}
+
+{{- end }}
+
+// PREF: Do not check if Firefox is the default browser
+user_pref("browser.shell.checkDefaultBrowser",			false);
+
+// PREF: Disable Pocket
+user_pref("browser.pocket.enabled",				false);
+user_pref("extensions.pocket.enabled",				false);
+
+// PREF: Disable "Recommended by Pocket" in Firefox Quantum
+user_pref("browser.newtabpage.activity-stream.feeds.section.topstories",	false);
+
+// PREF: Restore previous session on startup
+user_pref("browser.startup.page", 3);
+
+// PREF: Do not create screenshots of visited pages (relates to the "new tab page" feature)
+user_pref("browser.pagethumbnails.capturing_disabled",		true);
+
+// PREF: Disable Extension recommendations (Firefox >= 65)
+user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false);
+user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false);
+user_pref("browser.discovery.enabled",              false);
+
+/* 0320: disable about:addons' Recommendations pane (uses Google Analytics) ***/
+/* 0321: disable recommendations in about:addons' Extensions and Themes panes [FF68+] ***/
+user_pref("extensions.getAddons.showPane", false); // [HIDDEN PREF]
+user_pref("extensions.htmlaboutaddons.recommendations.enabled", false);
+
+// PREF: Disable Sponsored Top Sites
+user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false);
+
+// PREF: Disable Snippets
+user_pref("browser.newtabpage.activity-stream.feeds.snippets",	false);
+
+// PREF: Disable downloading homepage snippets/messages from Mozilla
+user_pref("browser.aboutHomeSnippets.updateUrl",		"");
+
+
+/*******************************************************************************
+ * SECTION: Privacy and Security Related                                       *
+ *******************************************************************************/
+// PREF: Enable Firefox Tracking Protection
+user_pref("privacy.trackingprotection.enabled",          true);
+user_pref("privacy.trackingprotection.pbmode.enabled",       true);
+
+// PREF: Enable insecure password warnings (login forms in non-HTTPS pages)
+user_pref("security.insecure_password.ui.enabled",		true);
+
+// PREF: Send DNS request through SOCKS when SOCKS proxying is in use
+user_pref("network.proxy.socks_remote_dns",			true);
+
+// PREF: Don't monitor OS online/offline connection state
+user_pref("network.manage-offline-status",			false);
+
+// PREF: Disable "Autofill addresses"
+user_pref("extensions.formautofill.addresses.enabled", false);
+
+// PREF: Disable "Autofill credit cards"
+user_pref("extensions.formautofill.creditCards.enabled", false);
+
+// PREF: Disable collection/sending of the health report (healthreport.sqlite*)
+user_pref("datareporting.healthreport.uploadEnabled",		false);
+user_pref("datareporting.healthreport.service.enabled",		false);
+user_pref("datareporting.policy.dataSubmissionEnabled",		false);
+
+// "Allow Firefox to make personalized extension recommendations"
+user_pref("browser.discovery.enabled",				false);
+
+// PREF: Disable Shield/Heartbeat/Normandy (Mozilla user rating telemetry)
+user_pref("app.normandy.enabled", false);
+user_pref("app.normandy.api_url", "");
+user_pref("extensions.shield-recipe-client.enabled",		false);
+user_pref("app.shield.optoutstudies.enabled",			false);
+
+// PREF: Disable Mozilla telemetry/experiments
+user_pref("toolkit.telemetry.enabled",               false);
+user_pref("toolkit.telemetry.unified",               false);
+user_pref("toolkit.telemetry.archive.enabled",           false);
+user_pref("experiments.supported",               false);
+user_pref("experiments.enabled",             false);
+user_pref("experiments.manifest.uri",                "");
+
+// PREF: Disable face detection
+user_pref("camera.control.face_detection.enabled",      false);
+
+// PREF: Disable GeoIP lookup on your address to set default search engine region
+user_pref("browser.search.countryCode",              "US");
+user_pref("browser.search.region",               "US");
+user_pref("browser.search.geoip.url",                "");
+
+// PREF: Don't use Mozilla-provided location-specific search engines
+user_pref("browser.search.geoSpecificDefaults",          false);
+
+// PREF: Do not automatically send selection to clipboard on some Linux platforms
+user_pref("clipboard.autocopy",                  false);
+
+// PREF: Don't reveal build ID
+user_pref("general.buildID.override",                "20100101");
+user_pref("browser.startup.homepage_override.buildID",       "20100101");
+
+// PREF: Opt-out of add-on metadata updates
+user_pref("extensions.getAddons.cache.enabled",          false);
+
+// PREF: Disable sending Firefox crash reports to Mozilla servers
+user_pref("breakpad.reportURL",                  "");
+
+// PREF: Disable sending reports of tab crashes to Mozilla (about:tabcrashed), don't nag user about unsent crash reports
+user_pref("browser.tabs.crashReporting.sendReport",      false);
+user_pref("browser.crashReports.unsubmittedCheck.enabled",   false);
+
+// PREF: Disable FlyWeb (discovery of LAN/proximity IoT devices that expose a Web interface)
+user_pref("dom.flyweb.enabled",                  false);
+
+// PREF: Disable Firefox Hello metrics collection
+user_pref("loop.logDomains",                 false);

@@ -1,0 +1,60 @@
+# load custom executable functions
+for function in ~/.zsh/functions/*; do
+  source $function
+done
+
+# extra files in ~/.zsh/configs/pre , ~/.zsh/configs , and ~/.zsh/configs/post
+# these are loaded first, second, and third, respectively.
+_load_settings() {
+  _dir="$1"
+  if [ -d "$_dir" ]; then
+    if [ -d "$_dir/pre" ]; then
+      for config in "$_dir"/pre/**/*~*.zwc(N-.); do
+        . $config
+      done
+    fi
+
+    for config in "$_dir"/**/*(N-.); do
+      case "$config" in
+        "$_dir"/(pre|post)/*|*.zwc)
+          :
+          ;;
+        *)
+          . $config
+          ;;
+      esac
+    done
+
+    if [ -d "$_dir/post" ]; then
+      for config in "$_dir"/post/**/*~*.zwc(N-.); do
+        . $config
+      done
+    fi
+  fi
+}
+_load_settings "$HOME/.zsh/configs"
+
+declare -A hostname_colors
+
+# Load local override configs
+[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
+
+#
+# PROMPT
+# I'd like to move this into it's own file but am having issues with the git branch extrapolating correctly
+#
+if [ ! -z "${VIMRUNTIME}" ]; then
+    PROMPT_PRE="%F{yellow}[VIM SHELL] "
+fi
+
+HOSTNAME_COLOR="${HOSTNAME_COLOR:={{ .hostname_color }}}"
+PROMPT="${PROMPT_PRE:=}%F{blue}%n%f@%F{$HOSTNAME_COLOR}%m%f:%F{cyan}%~%f [%F{214}%*%f] \$vcs_info_msg_0_%(?.%F{green}:).%F{red}:()%f"$' ${PROMPT_POST:=}\n'"|--%# "
+
+# The following is to configure git branch info
+# Git branch appears on right side of prompt, where available
+autoload -Uz vcs_info
+precmd_vcs_info() { vcs_info }
+precmd_functions+=( precmd_vcs_info )
+setopt prompt_subst
+zstyle ':vcs_info:git:*' formats '%F{5}(%b)%f '
+zstyle ':vcs_info:*' enable git

@@ -1,0 +1,288 @@
+""""""""
+" If error when loading about 'Unknown Command: ^M', run the following:
+"   :w ++ff=unix
+""""""""
+
+" 01 - General
+    filetype plugin on          " Enable filetype-specific plugins
+
+    set foldenable              " Fold by default
+    set foldmethod=indent
+    set foldlevel=2             " Default fold levelss to leave open
+    set modelines=0             " Dont need modelines and the potential security hazard
+
+    "set mouse=a                " Automatically enable mouse usage
+    "set mousehide              " Hide the mouse cursor while typing
+    set encoding=utf-8
+
+    set history=300             " Default is 20
+    set undolevels=300
+
+    set backspace=indent,eol,start  " Make backspace act like most other applications
+
+    let g:netrw_dirhistmax=0    " Do not create the network history files
+    let mapleader = ","         " Leader key (default: \)
+
+" 02 - Plugin/Bundle Related
+    packadd! matchit
+    packloadall                 " Load plugins (for utilizing ~/.vim/pack loading in vim 8+)
+
+    " ALE - Asynchronous Line Engine
+        nmap <silent> <leader>k <Plug>(ale_previous_wrap)
+        nmap <silent> <leader>j <Plug>(ale_next_wrap)
+
+        let g:airline#extensions#ale#enabled = 1
+        let g:ale_echo_msg_error_str = 'E'
+        let g:ale_echo_msg_warning_str = 'W'
+        let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+
+        function! LinterStatus() abort
+            " Display all errors as one figure, and all non-errors as another figure
+            let l:counts = ale#statusline#Count(bufnr(''))
+
+            let l:all_errors = l:counts.error + l:counts.style_error
+            let l:all_non_errors = l:counts.total - l:all_errors
+
+            return l:counts.total == 0 ? 'OK' : printf(
+            \   '%dW %dE',
+            \   all_non_errors,
+            \   all_errors
+            \)
+        endfunction
+
+        set statusline=%{LinterStatus()}
+
+    " Pathogen
+        execute pathogen#infect()
+        call pathogen#helptags() 	" generate helptags for everything in ‘runtimepath’
+
+    " Python Syntax
+        let g:python_highlight_all = 1
+
+    " Plugin - indentLine
+        let g:indentLine_enabled = 0    " Disable by default (messes with syntax highlighting)
+
+    " Plugin - lightline
+        if isdirectory(expand("~/.vim/bundle/lightline.vim"))
+            let g:lightline = {
+                \ 'active': {
+                \   'left': [ [ 'mode', 'paste' ],
+                \             [ 'readonly', 'filename', 'modified', 'charvaluehex' ] ]
+                \ },
+                \ 'component': {
+                \   'charvaluehex': '0x%B'
+                \ },
+                \ }
+        endif
+
+    " Plugin - NERDCommenter
+        let g:NERDSpaceDelims = 1   " Add spaces after comment delimiters by default
+        map - <plug>NERDCommenterToggle
+        map _ <plug>NERDCommenterUncomment
+
+    " Plugin - NERDTree related
+        if isdirectory(expand("~/.vim/bundle/nerdtree"))
+            " Open NERDTree when opening nothing (just vim)
+            "autocmd StdinReadPre * let s:std_in=1
+            "autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+            " Open NERDTree when opening directory
+            autocmd StdinReadPre * let s:std_in=1
+            autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+
+            map <leader>n :NERDTreeToggle<CR>
+
+            let NERDTreeShowBookmarks=1
+            let NERDTreeIgnore=['\\.pyc', '\\\~$', '\\.swo$', '\\.swp$', '\\.git', '\\.hg', '\\.svn', '\\.bzr']
+        endif
+
+    " Plugin - Tabular
+        if isdirectory(expand("~/.vim/bundle/tabular"))
+            nmap <leader>a& :Tab /&<CR>
+            vmap <leader>a& :Tab /&<CR>
+            nmap <leader>a# :Tab /#<CR>
+            vmap <leader>a# :Tab /#<CR>
+            nmap <leader>a= :Tab /^[^=]*\zs=<CR>
+            vmap <leader>a= :Tab /^[^=]*\zs=<CR>
+            nmap <leader>a=> :Tab /=><CR>
+            vmap <leader>a=> :Tab /=><CR>
+            nmap <leader>a: :Tab /:<CR>
+            vmap <leader>a: :Tab /:<CR>
+            nmap <leader>a:: :Tab /:\zs<CR>
+            vmap <leader>a:: :Tab /:\zs<CR>
+            nmap <leader>a, :Tab /,<CR>
+            vmap <leader>a, :Tab /,<CR>
+            nmap <leader>a,, :Tab /,\zs<CR>
+            vmap <leader>a,, :Tab /,\zs<CR>
+            nmap <leader>a<Bar> :Tab /<Bar><CR>
+            vmap <leader>a<Bar> :Tab /<Bar><CR>
+        endif
+
+    " Plugin - vim-rainbow
+        let g:rainbow_active = 1
+
+    " Plugin - vim-surround
+        " This allows for surrounding test with something
+        " Note: In the following, [ will add a space around text, ] will not (e.g. [ TEST ] vs [TEST])
+        " Examples:
+        "   cs"'      " Replace double quotes with single on the current line
+        "   cs'<q class="test">    " Replace single quote with <p></p> tagging
+        "   ds"       " Remove a delimeter (double quotes)
+        "   ysiw]     " Add delimeters around current work
+        "   yss)      " Add delimeters around entire line
+        "   S(        " Add delimeters around current selected line (Shift+V)
+        "
+
+    silent! helptags ALL    " Load all helptags after plugins loaded, all messages and errors are ignored
+
+" 03 - VIM UI
+    syntax on               " Enable syntax highlighting
+    match ErrorMsg '\s\+$'  " Highlight spaces (makes it obvious when trailing)
+
+    " Theme - PaperColor
+        let g:PaperColor_Theme_Options = {
+            \   'theme': {
+            \     'default.dark': {
+            \       'override' : {
+            \       	'folded_fg' : ['#34FB42', ''],
+            \       	'folded_bg' : ['#686868', ''],
+            \       }
+            \     }
+            \   }
+            \ }
+            "\       	'folded_fg' : ['#3B1317', ''],
+            "       	'folded_bg' : ['#009494', ''],
+
+    colorscheme gruvbox
+    set background=dark
+    set cul          " Highlight the current line
+    set ignorecase   " Case insensitive search
+    set smartcase    " If a capital lever is included in search, make it case-sensitive
+    set incsearch    " Show matches as you type
+    set hlsearch     " Highlight search results
+    set laststatus=2 " 0 to never show status line, 1 means only if >1 windows, 2 means always
+    set number       " Enable line numbers
+    set ruler        " Enable the ruler
+    set scrolljump=5 " Lines to scroll when cursor leaves screen
+    set scrolloff=3  " Always show two lines around the cursor when scrolling
+    set noerrorbells
+    set noerrorbells " Don't sound warning on error
+    set visualbell   " Don't blink on error
+    set t_vb=        " Disable visual blink
+
+    " Allow for transparent consoles
+    hi Normal guibg=NONE ctermbg=NONE
+    hi NonText ctermbg=NONE
+
+    set wildmenu      " visual autocomplete for command menu (below settings ignore this option for certain file types)
+    set wildmode=list:longest,full " Command <Tab> completion, list matches, then longest common part, then all.
+    set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*,*.bak,*.exe
+    set wildignore+=*.pyc,*.DS_Store,*.db
+
+    function! ToggleBG()
+        let s:tbg = &background
+        if s:tbg == "dark"
+            set background=light
+        else
+            set background=dark
+        endif
+    endfunction
+
+" 04 - Formatting Layout
+    set autoindent      " Use indent of previous line after hitting enter to create a new line
+    set copyindent      " Copy the previous indentation on autoindenting
+    set expandtab       " Change tabs to spaces
+    set shiftround      " use multiple of shiftwidth when indenting with '<' and '>'
+    set smarttab        " Insert tabs on the start of a line according to shiftwidth, not tabstop
+    set shiftwidth=4    " Number of spaces to use for autoindenting
+    set softtabstop=4   " Let backspace delete indent
+    set tabstop=4       " A tab is x spaces
+    set textwidth=0
+    set wrapmargin=0
+
+" 05 - Keybindings
+    " Modes - Prefex of map and remap (ie modes 'n' and 'o' for nomap)
+    " * n: normal only
+    " * v: visual and select
+    " * o: operator-pending
+    " * x: visual only
+    " * s: select only
+    " * i: insert
+    " * c: command-line
+    " * l: insert, command-line, regexp-search (and others. Collectively called 'Lang-Arg' pseudo-mode)
+
+    " Don't remap the numpad
+    inoremap <Esc>Oq 1
+    inoremap <Esc>Or 2
+    inoremap <Esc>Os 3
+    inoremap <Esc>Ot 4
+    inoremap <Esc>Ou 5
+    inoremap <Esc>Ov 6
+    inoremap <Esc>Ow 7
+    inoremap <Esc>Ox 8
+    inoremap <Esc>Oy 9
+    inoremap <Esc>Op 0
+    inoremap <Esc>On .
+    inoremap <Esc>OQ /
+    inoremap <Esc>OR *
+    inoremap <Esc>Ol +
+    inoremap <Esc>OS -
+    inoremap <Esc>OM <Enter>
+
+    cmap cwd lcd %:p:h " change working directory to current file
+
+    nnoremap j gj       " Move to next line (not remapped line from wordwrap)
+    nnoremap k gk       " Move to previous line (not remapped line from wordwrap)
+    vnoremap Q gq       " Word wrap visually highlighted line
+    nnoremap Q gqap     " Word wrap line
+    vnoremap < <gv      " Retain visual selection when indenting
+    vnoremap > >gv      " Retain visual selection when outdenting
+    nnoremap n nzzzv    " Keep next search result in middle of view
+    nnoremap N Nzzzv    " Keey previous search results in middle of view
+
+    " Map <leader>f to toggle folds
+    " If in visual mode, will create a fold
+    " If capital F, will toggle ALL folds below cursor
+    inoremap <leader>f <C-0>za
+    nnoremap <leader>f za
+    nnoremap <leader>F zA
+    onoremap <leader>f <C-C>za
+    vnoremap <leader>f zf
+
+    nnoremap <silent><Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
+    nnoremap <silent><Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
+    nnoremap <silent><Leader>> :exe "vertical resize " . (winwidth(0) * 3/2)<CR>
+    nnoremap <silent><Leader>< :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
+
+    nnoremap <leader><F2> :%s/\s\+$//<cr>:let @/=''<CR> " Remove trailing whitespace on lines
+    nnoremap <leader><F3> :set invwrap wrap?<CR>        " Toggle wordwrap
+    nnoremap <leader><F4> :source $MYVIMRC<CR>          " Reload .vimrc file
+
+    noremap <leader>bg :call ToggleBG()<CR> " Toggle dark/light colors
+    nnoremap <silent> <leader>q gwip        " format paragraph
+    nmap <leader>h :nohl<CR>                " Toggle search hilight
+    nmap <leader>p :set paste!<CR>          " Toggle paste mode
+    nmap <leader>sh :split<CR>              " Split window horizontally
+    nmap <leader>sv :vsplit<CR>             " Split window veritcally
+    nmap <leader>i :IndentLinesToggle<CR>   " Toggle indent guides
+    nmap <leader>t :tabn<CR>                " Next tab
+    nmap <leader>T :tabp<CR>                " Previous tab
+    nmap <leader>w <C-w>w                   " Cycle through splits
+    nnoremap <leader>j :%!python -m json.tool<CR>   " Pretty print json
+
+    cmap w!! w !sudo tee % >/dev/null " When you forget to sudo first
+
+    " Display all occurences of word under cursor and allow quick navigation
+    nmap ff [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
+
+    " Wrap line and word with delimiter (follow with [ similar delimiter)
+    nmap <leader>d yss
+    nmap <leader>D ysiw
+    " Wrap selection with delimiter
+    xmap <leader>d S
+
+" 06 - Auto Commands
+    autocmd BufNewFile,BufRead *.markdown,*.md  set filetype=markdown
+    autocmd BufRead,BufNewFile *.go setfiletype go
+
+    "autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\')) " highlight all occurences of word under cursor (* does this as well)

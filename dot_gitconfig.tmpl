@@ -1,0 +1,18 @@
+[user]
+    email = {{ default "unknown@unknown.com" .git.email | quote }}
+    name = {{ default "Unknown" .git.name | quote }}
+
+[http]
+{{- if hasKey .git "ssl_verify" }}
+    sslVerify = {{ .git.ssl_verify }}
+{{- else }}
+    sslVerify = true
+{{- end }}
+
+[apply]
+    # Detect whitespace errors when applying a patch.
+    whitespace = fix
+
+[fetch]
+    # Remove any remote-tracking references that no longer exist on the remote.
+    prune = true
