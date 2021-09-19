@@ -42,5 +42,7 @@ case "${TERM}" in
         bindkey '^[[1;5D' backward-word       # CTRL+LEFT
         bindkey '\e[A' up-line-or-beginning-search      # UP
         bindkey '\e[B' down-line-or-beginning-search    # DOWN
+        [[ -n "${key[Up]}"   ]] && bindkey -- "${key[Up]}" up-line-or-beginning-search
+        [[ -n "${key[Down]}" ]] && bindkey -- "${key[Down]}" down-line-or-beginning-search
     ;;
 esac
