@@ -4,12 +4,22 @@
 
 <!-- vim-markdown-toc GFM -->
 
+* [Keybindings](#keybindings)
 * [Aliases](#aliases)
 * [Functions](#functions)
 * [Customizations - ~/.zshrc.local](#customizations---zshrclocal)
     * [Useful Examples](#useful-examples)
 
 <!-- vim-markdown-toc -->
+
+## Keybindings
+
+| Keybinding           | Description                                                                     |
+| -------------------- | ------------------------------------------------------------------------------- |
+| `<UP|DOWN>`          | Autocompletes previous entries (e.g. `echo<UP>` returns previous echo commands) |
+| `<CTRL><LEFT|RIGHT>` | Move forward/backward per word                                                  |
+| `<ALT><.>`           | Last argument of previous command                                               |
+
 
 ## Aliases
 
@@ -80,4 +90,3 @@ yubidecrypt () {
     gpg --decrypt --output "${output}" "${1}" && echo "${1} -> ${output}"
 }
 ```
-
