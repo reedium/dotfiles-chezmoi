@@ -1,4 +1,4 @@
-README.md
+**/README.md
 {{ if (hasKey . "firefox") | not }}
 .mozilla
 {{- end }}
