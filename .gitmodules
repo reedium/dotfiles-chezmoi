@@ -31,9 +31,6 @@
 [submodule "dot_vim/bundle/vim-surround"]
 	path = dot_vim/bundle/vim-surround
 	url = https://github.com/tpope/vim-surround.git
-[submodule "dot_vim/pack/dist/opt/vim-matchit"]
-	path = dot_vim/pack/dist/opt/vim-matchit
-	url = https://github.com/adelarsq/vim-matchit.git
 [submodule "dot_vim/pack/git-plugins/start/ale"]
 	path = dot_vim/pack/git-plugins/start/ale
 	url = https://github.com/dense-analysis/ale.git
