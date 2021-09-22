@@ -6,3 +6,7 @@
 {{ if (hasKey . "git") | not }}
 .gitconfig
 {{- end }}
+
+{{ if (eq .chezmoi.os "darwin") }}
+.local
+{{- end }}
