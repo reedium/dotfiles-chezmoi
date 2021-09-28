@@ -19,6 +19,7 @@
 * [Initial Setup](#initial-setup)
 * [Special Notes](#special-notes)
     * [Mozilla Firefox](#mozilla-firefox)
+    * [Tmux](#tmux)
 
 <!-- vim-markdown-toc -->
 
@@ -124,3 +125,14 @@ Renaming the profile (`firefox -p`), renaming the directory, and modifying `prof
 Unfortunately, it can't be automated with Chezmoi. Chezmoi can NOT add files to the symlink directory. It will delete the symlink and create just the directory needed.
 
 The above implementation seems to get around these issues.
+
+
+## Tmux
+
+* Default Prefix: `ctrl + a` or `ctrl + b`
+
+On first install, it may be necessary to run the following to download the plugins and reload tmux:
+
+```
+<prefix>I
+```
