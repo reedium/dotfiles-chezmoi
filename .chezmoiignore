@@ -7,6 +7,6 @@
 .gitconfig
 {{- end }}
 
-{{ if (eq .chezmoi.os "darwin") }}
-.local
+{{ if (hasKey . "fonts") | not }}
+.local/share/fonts
 {{- end }}

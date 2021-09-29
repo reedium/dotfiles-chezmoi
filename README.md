@@ -79,6 +79,9 @@ Create the chezmoi configuration at `~/.config/chezmoi/chezmoi.toml`:
     enabled = true
     bookmarks = "/home/user/bookmarks.html"
 
+[data.fonts]
+    enabled = true
+
 [data.git]
     email = "git@email.com"
     name = "My User"
