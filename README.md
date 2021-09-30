@@ -108,7 +108,7 @@ chezmoi apply -v -n         # Remove -n to actually apply
 
 ## Mozilla Firefox
 
-I utilize various [user.js](private_dot_mozilla/private_firefox/private_personal-profile.default/user.js.tmpl) and userChrome.css tweaks. These are setup within `~/.mozilla/firefox/personal-profile.default/`.
+I utilize various [user.js](private_dot_mozilla/private_firefox/private_personal-profile.default/user.js.tmpl) and [userChrome.css](private_dot_mozilla/private_firefox/private_personal-profile.default/chrome/userChrome.css) tweaks. These are setup within `~/.mozilla/firefox/personal-profile.default/`.
 
 Because of how firefox creates profile directories with randomish names, the best method is to:
 
