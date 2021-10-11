@@ -121,6 +121,7 @@
         endif
 
     " Plugin - vim-rainbow
+        " DISABLED: Interferes with spellcheck
         " let g:rainbow_active = 1
 
     " Plugin - vim-surround
