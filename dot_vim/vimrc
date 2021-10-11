@@ -11,6 +11,8 @@
     set foldlevel=2             " Default fold levelss to leave open
     set modelines=0             " Dont need modelines and the potential security hazard
 
+    set spell                   " Enable spellcheck (see keybindings for quick toggle)
+
     "set mouse=a                " Automatically enable mouse usage
     "set mousehide              " Hide the mouse cursor while typing
     set encoding=utf-8
@@ -119,7 +121,7 @@
         endif
 
     " Plugin - vim-rainbow
-        let g:rainbow_active = 1
+        " let g:rainbow_active = 1
 
     " Plugin - vim-surround
         " This allows for surrounding test with something
@@ -264,6 +266,7 @@
     nmap <leader>p :set paste!<CR>          " Toggle paste mode
     nmap <leader>sh :split<CR>              " Split window horizontally
     nmap <leader>sv :vsplit<CR>             " Split window veritcally
+    nmap <leader>sp :setlocal spell! spelllang=en_us<CR>  " Toggle spell check
     nmap <leader>i :IndentLinesToggle<CR>   " Toggle indent guides
     nmap <leader>t :tabn<CR>                " Next tab
     nmap <leader>T :tabp<CR>                " Previous tab
