@@ -39,10 +39,6 @@
     type = "archive"
     url = "https://github.com/mzlogin/vim-markdown-toc/archive/master.tar.gz"
     stripComponents = 1
-[".vim/bundle/vim-rainbow"]
-    type = "archive"
-    url = "https://github.com/frazrepo/vim-rainbow/archive/master.tar.gz"
-    stripComponents = 1
 [".vim/bundle/vim-surround"]
     type = "archive"
     url = "https://github.com/tpope/vim-surround/archive/master.tar.gz"

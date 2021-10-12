@@ -42,7 +42,7 @@ Note: Some features require version 8+ of vim. For instance, the ALE plugin whic
 * [Tabular](https://github.com/godlygeek/tabular/) - Easily align text based on delimeters (e.g. |)
 * [surround.vim](https://github.com/tpope/vim-surround) - Easily surround with delimeters (e.g. "Something")
 * [IndentLines](https://github.com/Yggdroot/indentLine) - View the indentations (`<leader>i`)
-* [vim-rainbow](https://github.com/frazrepo/vim-rainbow.git) - Different colors for different levels of brackets
+* ~~[vim-rainbow](https://github.com/frazrepo/vim-rainbow.git) - Different colors for different levels of brackets~~ Disabled as interfers with spellcheck for some reason
 
 
 
