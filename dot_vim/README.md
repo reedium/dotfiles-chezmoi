@@ -59,6 +59,7 @@ Note: Some features require version 8+ of vim. For instance, the ALE plugin whic
 | `<leader>h`                  | Disable search highlight                                                                                             |                |
 | `<leader>f<0-9>`             | Set foldlevel (0-9)                                                                                                  |                |
 | `<leader>i`                  | Toggle indent guides                                                                                                 | IndentLines    |
+| `<leader>sp`                 | Toggle spellchecking (us-en)                                                                                         |                |
 
 ### Formatting Related
 
