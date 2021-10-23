@@ -142,20 +142,6 @@
     syntax on               " Enable syntax highlighting
     match ErrorMsg '\s\+$'  " Highlight spaces (makes it obvious when trailing)
 
-    " Theme - PaperColor
-        let g:PaperColor_Theme_Options = {
-            \   'theme': {
-            \     'default.dark': {
-            \       'override' : {
-            \       	'folded_fg' : ['#34FB42', ''],
-            \       	'folded_bg' : ['#686868', ''],
-            \       }
-            \     }
-            \   }
-            \ }
-            "\       	'folded_fg' : ['#3B1317', ''],
-            "       	'folded_bg' : ['#009494', ''],
-
     colorscheme gruvbox
     set background=dark
     set cul          " Highlight the current line
@@ -272,9 +258,6 @@
     nmap <leader>t :tabn<CR>                " Next tab
     nmap <leader>T :tabp<CR>                " Previous tab
     nmap <leader>w <C-w>w                   " Cycle through splits
-    nnoremap <leader>j :%!python -m json.tool<CR>   " Pretty print json
-
-    cmap w!! w !sudo tee % >/dev/null " When you forget to sudo first
 
     " Display all occurences of word under cursor and allow quick navigation
     nmap ff [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
@@ -282,11 +265,5 @@
     " Wrap line and word with delimiter (follow with [ similar delimiter)
     nmap <leader>d yss
     nmap <leader>D ysiw
-    " Wrap selection with delimiter
-    xmap <leader>d S
 
-" 06 - Auto Commands
-    autocmd BufNewFile,BufRead *.markdown,*.md  set filetype=markdown
-    autocmd BufRead,BufNewFile *.go setfiletype go
-
-    "autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\')) " highlight all occurences of word under cursor (* does this as well)
+    nnoremap <leader>j :%!python -m json.tool<CR>   " Pretty print json
