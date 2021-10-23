@@ -31,7 +31,6 @@ Note: Some features require version 8+ of vim. For instance, the ALE plugin whic
 
 ## Plugins
 * ~~[Easymotion](https://github.com/easymotion/vim-easymotion) - Easily navigate documents~~ Disabled recently as unused, although useful
-* [Asynchronous Lint Engine (ALE)](https://github.com/dense-analysis/ale) - Linting while working
 * [Gruvbox](https://github.com/morhetz/gruvbox) - Retro colorscheme (colorscheme in vimrc)
 * ~~[Matchit](https://github.com/adelarsq/vim-matchit) - For expanding % matching (matches start/end tags for html, for example)~~ Disabled recently as possibly unused
 * [Lightline](https://github.com/itchyny/lightline.vim) - Configurable statusline/tabline

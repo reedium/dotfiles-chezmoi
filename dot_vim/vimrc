@@ -29,31 +29,6 @@
     packadd! matchit
     packloadall                 " Load plugins (for utilizing ~/.vim/pack loading in vim 8+)
 
-    " ALE - Asynchronous Line Engine
-        nmap <silent> <leader>k <Plug>(ale_previous_wrap)
-        nmap <silent> <leader>j <Plug>(ale_next_wrap)
-
-        let g:airline#extensions#ale#enabled = 1
-        let g:ale_echo_msg_error_str = 'E'
-        let g:ale_echo_msg_warning_str = 'W'
-        let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-
-        function! LinterStatus() abort
-            " Display all errors as one figure, and all non-errors as another figure
-            let l:counts = ale#statusline#Count(bufnr(''))
-
-            let l:all_errors = l:counts.error + l:counts.style_error
-            let l:all_non_errors = l:counts.total - l:all_errors
-
-            return l:counts.total == 0 ? 'OK' : printf(
-            \   '%dW %dE',
-            \   all_non_errors,
-            \   all_errors
-            \)
-        endfunction
-
-        set statusline=%{LinterStatus()}
-
     " Pathogen
         execute pathogen#infect()
         call pathogen#helptags() 	" generate helptags for everything in ‘runtimepath’
@@ -119,10 +94,6 @@
             nmap <leader>a<Bar> :Tab /<Bar><CR>
             vmap <leader>a<Bar> :Tab /<Bar><CR>
         endif
-
-    " Plugin - vim-rainbow
-        " DISABLED: Interferes with spellcheck
-        " let g:rainbow_active = 1
 
     " Plugin - vim-surround
         " This allows for surrounding test with something
