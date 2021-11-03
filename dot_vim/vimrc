@@ -238,6 +238,3 @@
     nmap <leader>D ysiw
 
     nnoremap <leader>j :%!python -m json.tool<CR>   " Pretty print json
-
-" 05 - Auto Commands
-    autocmd BufWritePre * :%s/\s\+$//e  " Remove trailing whitespace on save
