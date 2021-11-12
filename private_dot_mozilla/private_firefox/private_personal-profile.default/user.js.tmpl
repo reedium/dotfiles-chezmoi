@@ -135,18 +135,12 @@ user_pref("browser.shell.checkDefaultBrowser",			false);
 user_pref("browser.pocket.enabled",				false);
 user_pref("extensions.pocket.enabled",				false);
 
-// PREF: Disable "Recommended by Pocket" in Firefox Quantum
-user_pref("browser.newtabpage.activity-stream.feeds.section.topstories",	false);
-
 // PREF: Restore previous session on startup
 user_pref("browser.startup.page", 3);
 
 // PREF: Do not create screenshots of visited pages (relates to the "new tab page" feature)
 user_pref("browser.pagethumbnails.capturing_disabled",		true);
 
-// PREF: Disable Extension recommendations (Firefox >= 65)
-user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false);
-user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false);
 user_pref("browser.discovery.enabled",              false);
 
 /* 0320: disable about:addons' Recommendations pane (uses Google Analytics) ***/
@@ -154,14 +148,25 @@ user_pref("browser.discovery.enabled",              false);
 user_pref("extensions.getAddons.showPane", false); // [HIDDEN PREF]
 user_pref("extensions.htmlaboutaddons.recommendations.enabled", false);
 
-// PREF: Disable Sponsored Top Sites
-user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false);
-
-// PREF: Disable Snippets
+// Disable various parts of the new tab page
+user_pref("browser.newtabpage.activity-stream.default.sites", "");  // Remove default topsites (not your custom sites)
+user_pref("browser.newtabpage.activity-stream.feeds.discoverystreamfeed", false);
+user_pref("browser.newtabpage.activity-stream.feeds.section.topstories",	false);
 user_pref("browser.newtabpage.activity-stream.feeds.snippets",	false);
+user_pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
+user_pref("browser.newtabpage.activity-stream.section.highlights.includePocket", false);
+user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false);
+user_pref("browser.newtabpage.activity-stream.telemetry", false);
+
+// PREF: Disable Extension recommendations (Firefox >= 65)
+user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false);
+user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false);
 
 // PREF: Disable downloading homepage snippets/messages from Mozilla
 user_pref("browser.aboutHomeSnippets.updateUrl",		"");
+
+// Disable about:config warning
+user_pref("browser.aboutConfig.showWarning", false);
 
 
 /*******************************************************************************
@@ -204,17 +209,37 @@ user_pref("app.shield.optoutstudies.enabled",			false);
 user_pref("toolkit.telemetry.enabled",               false);
 user_pref("toolkit.telemetry.unified",               false);
 user_pref("toolkit.telemetry.archive.enabled",           false);
+user_pref("toolkit.telemetry.server", "data:,");
+user_pref("toolkit.telemetry.newProfilePing.enabled", false);
+user_pref("toolkit.telemetry.shutdownPingSender.enabled", false); // [FF55+]
+user_pref("toolkit.telemetry.updatePing.enabled", false); // [FF56+]
+user_pref("toolkit.telemetry.bhrPing.enabled", false); // [FF57+] Background Hang Reporter
+user_pref("toolkit.telemetry.firstShutdownPing.enabled", false); // [FF57+]
+user_pref("toolkit.telemetry.coverage.opt-out", true);
+user_pref("toolkit.coverage.opt-out", true); // [FF64+] [HIDDEN PREF]
+user_pref("toolkit.coverage.endpoint.base", "");
 user_pref("experiments.supported",               false);
 user_pref("experiments.enabled",             false);
 user_pref("experiments.manifest.uri",                "");
+user_pref("browser.ping-centre.telemetry", false);
 
 // PREF: Disable face detection
 user_pref("camera.control.face_detection.enabled",      false);
 
+
+// Geo based settings
 // PREF: Disable GeoIP lookup on your address to set default search engine region
 user_pref("browser.search.countryCode",              "US");
 user_pref("browser.search.region",               "US");
 user_pref("browser.search.geoip.url",                "");
+
+// Disable using the OS's locator
+user_pref("geo.provider.ms-windows-location", false); // [WINDOWS]
+user_pref("geo.provider.use_corelocation", false); // [MAC]
+user_pref("geo.provider.use_gpsd", false); // [LINUX]
+
+user_pref("geo.provider.network.url", "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%");
+
 
 // PREF: Don't use Mozilla-provided location-specific search engines
 user_pref("browser.search.geoSpecificDefaults",          false);
@@ -241,3 +266,7 @@ user_pref("dom.flyweb.enabled",                  false);
 
 // PREF: Disable Firefox Hello metrics collection
 user_pref("loop.logDomains",                 false);
+
+// PREF: Disable autoupdate
+user_pref("app.update.auto", false);    // Non-Windows
+user_pref("app.update.background.scheduling.enabled", false); // Windows
