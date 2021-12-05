@@ -13,7 +13,7 @@
 
     set spell                   " Enable spellcheck (see keybindings for quick toggle)
 
-    set mouse=a                " Enable mouse control
+    "set mouse=a                " Enable mouse control
     set mousehide              " Hide the mouse cursor while typing
     set encoding=utf-8
 
