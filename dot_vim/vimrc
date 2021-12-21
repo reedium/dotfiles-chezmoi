@@ -95,6 +95,10 @@
             vmap <leader>a<Bar> :Tab /<Bar><CR>
         endif
 
+    " Plugin - Vim Snippets (UltiSnips)
+    let g:UltiSnipsExpandTrigger="<tab>"
+    let g:UltiSnipsListSnippets="<c-l>" " list all snippets for current filetype
+
     " Plugin - vim-surround
         " This allows for surrounding test with something
         " Note: In the following, [ will add a space around text, ] will not (e.g. [ TEST ] vs [TEST])

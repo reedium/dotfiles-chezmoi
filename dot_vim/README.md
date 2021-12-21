@@ -5,7 +5,7 @@ Note: Some features require version 8+ of vim. For instance, the ALE plugin whic
 ## Table of Contents
 <!-- vim-markdown-toc GFM -->
 
-* [Snippets](#snippets)
+* [Keybinding Shortcuts/Snippets](#keybinding-shortcutssnippets)
     * [Incrementing a column of numbers](#incrementing-a-column-of-numbers)
 * [Plugins](#plugins)
 * [Keybindings](#keybindings)
@@ -14,10 +14,15 @@ Note: Some features require version 8+ of vim. For instance, the ALE plugin whic
     * [Navigation Related](#navigation-related)
     * [Tabs and Windows Related](#tabs-and-windows-related)
     * [Misc Related](#misc-related)
+* [Snippets](#snippets)
+    * [Common Snippet Examples](#common-snippet-examples)
+        * [Go Snippets](#go-snippets)
+        * [Python Snippets](#python-snippets)
+        * [Markdown Snippets](#markdown-snippets)
 
 <!-- vim-markdown-toc -->
 
-## Snippets
+## Keybinding Shortcuts/Snippets
 ```
 <v><e><y>       # select to end of word/variable and yank
 <c><t><)>       # cut everything before )  [eg func(text-to-cut)]
@@ -42,6 +47,8 @@ Note: Some features require version 8+ of vim. For instance, the ALE plugin whic
 * [surround.vim](https://github.com/tpope/vim-surround) - Easily surround with delimeters (e.g. "Something")
 * [IndentLines](https://github.com/Yggdroot/indentLine) - View the indentations (`<leader>i`)
 * ~~[vim-rainbow](https://github.com/frazrepo/vim-rainbow.git) - Different colors for different levels of brackets~~ Disabled as interfers with spellcheck for some reason
+* [UltiSnips](https://github.com/SirVer/ultisnips) - Snippets manager for vim
+* [vim-snippets](https://github.com/honza/vim-snippets) - Snippets for various languages
 
 
 
@@ -112,3 +119,89 @@ Note: Some features require version 8+ of vim. For instance, the ALE plugin whic
 | `<leader><F4>`               | Reload vimrc file                                                                                                    |                |
 | `w!!`                        | Attempt to sudo and write to file                                                                                    |                |
 
+
+## Snippets
+
+Snippets have a few extra things to note:
+
+* Snippet Leader: `<tab>`
+* List Snippets: `<ctrl-l>`
+* Forward Through Snippet: `<ctrl-j>`
+* Backward Through Snippet: `<ctrl-k>`
+
+You run the snippet completion while in insert mode.
+
+A simple example: Type `#!<tab>` automatically inserts `#!/usr/bin/env python`
+
+A more in depth example:
+    1. `class<tab>`
+    2. Start typing to provide name of class (already selected)
+    3. `<ctrl-j>` to move to the parent class (`class MyObject(<parent-object>):`)
+    4. `<ctrl-j>` to move to docstring
+    5. `<ctrl-j>` to move to inputs of the `__init__` function (typing a new input name automatically adds `self._varname = varname`)
+
+
+### Common Snippet Examples
+
+These are taken from [this article](https://bhupesh-v.github.io/learn-how-to-use-code-snippets-vim-cowboy/).
+
+#### Go Snippets
+
+[All Go snippets](https://github.com/honza/vim-snippets/blob/master/snippets/go.snippets). Also, see Ultisnips specific [snippets](https://github.com/honza/vim-snippets/blob/master/UltiSnips/go.snippets)
+
+| Snippet Trigger | Description |
+| --------------- | ----------- |
+| `fun` | Go function |
+| `fum` | Go Method |
+| `for` | Infinite for loop |
+| `forr` | Range based for loop |
+| `err` | Go Basic Error Handling |
+| `im` | Import Packages |
+| `pf` | fmt.Printf(…) |
+| `pl` | fmt.Println(…) |
+| `ps` | fmt.Sprintf(…) |
+| `om` | if key in map |
+| `if` | Go basic if statement |
+| `ife` | Go basic if/else statement |
+| `sw` | Switch statement |
+| `sl` | Go select for channels |
+| `ga` | goroutine anonymous function |
+| `test` | Go Test function |
+| `testt` | Go Table test function |
+
+
+#### Python Snippets
+
+[All python snippets](https://github.com/honza/vim-snippets/blob/master/snippets/python.snippets). Also see Ultisnips specific [snippets](https://github.com/honza/vim-snippets/blob/master/UltiSnips/python.snippets)
+
+| Snippet Trigger | Description |
+| --------------- | ----------- |
+| `cl` | New Python class |
+| `def` | New Python function definition |
+| `adef` | Python Async function definition |
+| `err` | Go Basic Error Handling |
+| `try` | Try/Except Block |
+| `trye` | Try/Except/Else Block |
+| `tryf` | Try/Except/Finally Block |
+| `tryef` | Try/Except/Else/Finally Block |
+| `"` | Python docstring |
+| `if` | Python basic if statement |
+| `el` | Python basic else statement |
+| `for` | Range based for loop |
+| `lcp` | List comprehension |
+
+
+#### Markdown Snippets
+
+[All shell snippets](https://github.com/honza/vim-snippets/blob/master/snippets/markdown.snippets). Also, see Ultisnips specific [snippets](https://github.com/honza/vim-snippets/blob/master/UltiSnips/markdown.snippets)
+
+| Snippet Trigger | Description |
+| --------------- | ----------- |
+| `*` | Italics text |
+| `**` | Bold text |
+| `/*` | Markdown/HTML Comment |
+| `cbl` | Code block |
+| `link or [` | Markdown link |
+| `img or ![` | Markdown image |
+| `tb` | Markdown Table |
+| `tbN,M` | Responsive Table<br>(tb12 creates a table with 1 row & 2 columns) |
