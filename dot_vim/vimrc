@@ -101,6 +101,7 @@
         let g:UltiSnipsListSnippets="<c-l>" " list all snippets for current filetype
         let g:UltiSnipsJumpForwardTrigger="<c-j>"
         let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+        let g:UltiSnipsEditSplit="context"  " Split horizontally or vertically with the custom snippets
 
     " Plugin - vim-surround
         " This allows for surrounding test with something

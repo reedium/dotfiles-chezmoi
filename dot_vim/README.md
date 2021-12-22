@@ -146,6 +146,8 @@ A more in depth example:
 
 You can edit the snippets for the current filetype that's open by using `:UltiSnipsEdit`
 
+After making any changes to the snippets, run `:call UltiSnips#RefreshSnippets()` to refresh the snippets
+
 **Important Note**: If using chezmoi, make sure to copy the snippet to the chezmoi repo so it isn't overwritten during next `chezmoi apply`
 
 
