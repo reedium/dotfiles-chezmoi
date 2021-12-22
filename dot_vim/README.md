@@ -135,6 +135,7 @@ You run the snippet completion while in insert mode.
 A simple example: Type `#!<tab>` automatically inserts `#!/usr/bin/env python`
 
 A more in depth example:
+
     1. `class<tab>`
     2. Start typing to provide name of class (already selected)
     3. `<ctrl-j>` to move to the parent class (`class MyObject(<parent-object>):`)
