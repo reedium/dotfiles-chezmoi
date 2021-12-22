@@ -189,6 +189,7 @@ These are taken from [this article](https://bhupesh-v.github.io/learn-how-to-use
 | Snippet Trigger | Description |
 | --------------- | ----------- |
 | `cl` | New Python class |
+| `dataclass` | Create a dataclass (**Custom**) |
 | `def` | New Python function definition |
 | `adef` | Python Async function definition |
 | `err` | Go Basic Error Handling |
