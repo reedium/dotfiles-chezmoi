@@ -15,6 +15,7 @@ Note: Some features require version 8+ of vim. For instance, the ALE plugin whic
     * [Tabs and Windows Related](#tabs-and-windows-related)
     * [Misc Related](#misc-related)
 * [Snippets](#snippets)
+    * [Adding/Editing Custom Snippets](#addingediting-custom-snippets)
     * [Common Snippet Examples](#common-snippet-examples)
         * [Go Snippets](#go-snippets)
         * [Python Snippets](#python-snippets)
@@ -124,7 +125,7 @@ Note: Some features require version 8+ of vim. For instance, the ALE plugin whic
 
 Snippets have a few extra things to note:
 
-* Snippet Leader: `<tab>`
+* Snippet Leader: `<shortcut><tab>` (e.g. `class<tab>`)
 * List Snippets: `<ctrl-l>`
 * Forward Through Snippet: `<ctrl-j>`
 * Backward Through Snippet: `<ctrl-k>`
@@ -141,9 +142,17 @@ A more in depth example:
     5. `<ctrl-j>` to move to inputs of the `__init__` function (typing a new input name automatically adds `self._varname = varname`)
 
 
+### Adding/Editing Custom Snippets
+
+You can edit the snippets for the current filetype that's open by using `:UltiSnipsEdit`
+
+**Important Note**: If using chezmoi, make sure to copy the snippet to the chezmoi repo so it isn't overwritten during next `chezmoi apply`
+
+
 ### Common Snippet Examples
 
 These are taken from [this article](https://bhupesh-v.github.io/learn-how-to-use-code-snippets-vim-cowboy/).
+
 
 #### Go Snippets
 
@@ -188,6 +197,7 @@ These are taken from [this article](https://bhupesh-v.github.io/learn-how-to-use
 | `if` | Python basic if statement |
 | `el` | Python basic else statement |
 | `for` | Range based for loop |
+| `forkey` | Enumerate using key value of an interable (**Custom**) |
 | `lcp` | List comprehension |
 
 

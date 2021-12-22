@@ -96,7 +96,7 @@
         endif
 
     " Plugin - Vim Snippets (UltiSnips)
-        let g:UltiSnipsSnippetDirectories=["UltiSnips", $HOME.'/.vim/snippets/']    " Add custom snippets
+        let g:UltiSnipsSnippetDirectories=["~/.vim/UltiSnips/", "UltiSnips"]    " Add custom snippets
         let g:UltiSnipsExpandTrigger="<tab>"
         let g:UltiSnipsListSnippets="<c-l>" " list all snippets for current filetype
         let g:UltiSnipsJumpForwardTrigger="<c-j>"
