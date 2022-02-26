@@ -1,4 +1,9 @@
 **/README.md
+
+{{ if (hasKey . "code") | not }}
+.config/Code\ -\ OSS/
+{{- end }}
+
 {{ if (hasKey . "firefox") | not }}
 .mozilla
 {{- end }}

@@ -15,6 +15,7 @@
 * [Chezmoi TLDR](#chezmoi-tldr)
 * [Configs and Applications](#configs-and-applications)
 * [Requirements](#requirements)
+* [Optional Requirements](#optional-requirements)
 * [Chezmoi Configuration File (Optional)](#chezmoi-configuration-file-optional)
 * [Initial Setup](#initial-setup)
 * [Special Notes](#special-notes)
@@ -66,6 +67,15 @@ Check out the README's of the various apps for shortcuts, plugin info, etc:
 
 The above are only the versions that each package was last known working with. It's likely most would work on earlier versions.
 
+# Optional Requirements
+
+See the configuration file for enabling
+
+| Application | Min Version |
+| ----------- | ----------- |
+| Firefox     | ???         |
+| Code - OSS  | ???         |
+
 
 # Chezmoi Configuration File (Optional)
 
@@ -86,6 +96,9 @@ Create the chezmoi configuration at `~/.config/chezmoi/chezmoi.toml`:
     email = "git@email.com"
     name = "My User"
     ssl_verify = false
+
+[data.code] # Code OSS (VSCode alternative)
+    enabled = true
 
 # The following is not currently in use
 [keepassxc]
