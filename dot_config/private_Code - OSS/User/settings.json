@@ -1,4 +1,29 @@
 {
     "redhat.telemetry.enabled": false,
-    "git.autoStash": true
+    "vim.hlsearch": true,
+    "vim.leader": ",",
+    "vim.useCtrlKeys": true,
+    "vim.useSystemClipboard": true,
+    "vim.normalModeKeyBindings": [
+      {
+        "before": ["<leader>", "s", "v"],
+        "commands": [":vsplit"]
+      },
+      {
+        "before": ["<leader>", "s", "h"],
+        "commands": [":hsplit"]
+      },
+      {
+        "before": ["<leader>", "t"],
+        "commands": [":tabn"]
+      },
+      {
+        "before": ["<leader>", "T"],
+        "commands": [":tabp"]
+      },
+      {
+        "before": ["<leader>", "w"],
+        "after": ["<C-w>", "w"]
+      }
+    ]
 }
