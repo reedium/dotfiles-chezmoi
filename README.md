@@ -71,10 +71,10 @@ The above are only the versions that each package was last known working with. I
 
 See the configuration file for enabling
 
-| Application | Min Version |
-| ----------- | ----------- |
-| Firefox     | ???         |
-| Code - OSS  | ???         |
+| Application | Min Version | Notes |
+| ----------- | ----------- | ----- |
+| Firefox     | ???         | Configures more secure and private `profile.js` settings |
+| Code - OSS  | ???         | Sets various extension settings, including activating the [One Dark Pro](https://marketplace.visualstudio.com/items?itemName=zhuangtongfa.Material-theme) color theme and [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme) |
 
 
 # Chezmoi Configuration File (Optional)
