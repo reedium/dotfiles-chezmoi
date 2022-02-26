@@ -1,4 +1,11 @@
 {
+    "editor.bracketPairColorization.enabled": true,
+    "editor.guides.bracketPairs":"active",
+    "editor.quickSuggestions": {
+        "other": true,
+        "comments": false,
+        "strings": false
+    },
     "redhat.telemetry.enabled": false,
     "vim.hlsearch": true,
     "vim.leader": ",",
@@ -25,5 +32,9 @@
         "before": ["<leader>", "w"],
         "after": ["<C-w>", "w"]
       }
-    ]
+    ],
+    "workbench.iconTheme": "material-icon-theme",
+    "diffEditor.ignoreTrimWhitespace": true,
+    "telemetry.telemetryLevel": "off",
+    "workbench.colorTheme": "One Dark Pro Darker"
 }
