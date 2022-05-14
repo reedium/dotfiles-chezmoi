@@ -3,43 +3,43 @@
     url = "https://github.com/tmux-plugins/tpm/archive/master.tar.gz"
     exact = true
     stripComponents = 1
-[".vim/bundle/gruvbox"]
+[".config/vim/bundle/gruvbox"]
     type = "archive"
     url = "https://github.com/morhetz/gruvbox/archive/master.tar.gz"
     stripComponents = 1
-[".vim/bundle/indentLine"]
+[".config/vim/bundle/indentLine"]
     type = "archive"
     url = "https://github.com/Yggdroot/indentLine/archive/master.tar.gz"
     stripComponents = 1
-[".vim/bundle/lightline.vim"]
+[".config/vim/bundle/lightline.vim"]
     type = "archive"
     url = "https://github.com/itchyny/lightline.vim/archive/master.tar.gz"
     stripComponents = 1
-[".vim/bundle/nerdcommenter"]
+[".config/vim/bundle/nerdcommenter"]
     type = "archive"
     url = "https://github.com/preservim/nerdcommenter/archive/master.tar.gz"
     stripComponents = 1
-[".vim/bundle/nerdtree"]
+[".config/vim/bundle/nerdtree"]
     type = "archive"
     url = "https://github.com/preservim/nerdtree/archive/master.tar.gz"
     stripComponents = 1
-[".vim/bundle/python-syntax"]
+[".config/vim/bundle/python-syntax"]
     type = "archive"
     url = "https://github.com/hdima/python-syntax/archive/master.tar.gz"
     stripComponents = 1
-[".vim/bundle/tabular"]
+[".config/vim/bundle/tabular"]
     type = "archive"
     url = "https://github.com/godlygeek/tabular/archive/master.tar.gz"
     stripComponents = 1
-[".vim/bundle/vim-indent-guides"]
+[".config/vim/bundle/vim-indent-guides"]
     type = "archive"
     url = "https://github.com/nathanaelkane/vim-indent-guides/archive/master.tar.gz"
     stripComponents = 1
-[".vim/bundle/vim-markdown-toc"]
+[".config/vim/bundle/vim-markdown-toc"]
     type = "archive"
     url = "https://github.com/mzlogin/vim-markdown-toc/archive/master.tar.gz"
     stripComponents = 1
-[".vim/bundle/vim-surround"]
+[".config/vim/bundle/vim-surround"]
     type = "archive"
     url = "https://github.com/tpope/vim-surround/archive/master.tar.gz"
     stripComponents = 1
