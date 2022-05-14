@@ -9,7 +9,7 @@
 {{- end }}
 
 {{ if (hasKey . "git") | not }}
-.gitconfig
+.config/git/config
 {{- end }}
 
 {{ if (hasKey . "fonts") | not }}
