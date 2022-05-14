@@ -51,9 +51,9 @@ chezmoi managed             # View managed files
 
 Check out the README's of the various apps for shortcuts, plugin info, etc:
 
-* [Tmux](dot_tmux/README.md)
-* [Vim](dot_vim/README.md)
-* [ZSH](dot_zsh/README.md)
+* [Tmux](dot_config/tmux/README.md)
+* [Vim](dot_config/vim/README.md)
+* [ZSH](dot_config/zsh/README.md)
 
 
 # Requirements
