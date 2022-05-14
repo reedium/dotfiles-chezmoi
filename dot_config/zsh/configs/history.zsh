@@ -11,4 +11,3 @@ setopt hist_verify            # Do not submit history searches before allowing f
 #HISTCONTRO=ignoreboth:erasedups # Ignore duplicates in the history and commands starting with space
 HISTSIZE=10000
 SAVEHIST=10000
-HISTFILE=${ZDOTDIR:-$HOME}/.zsh_history
