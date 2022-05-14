@@ -9,7 +9,7 @@ export ZDOTDIR="$XDG_CONFIG_HOME"/zsh
 export HISTFILE="$XDG_STATE_HOME"/zsh/history
 
 # Define other XDG location
-export VIMINIT="set nocp | source ${XDG_CONFIG_HOME:-$HOME/.config}/vim/vimrc"
+export VIMINIT="set nocp | source ${XDG_CONFIG_HOME}/vim/vimrc"
 
 
 # Taken from https://github.com/thoughtbot/dotfiles/blob/master/zshenv
