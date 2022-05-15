@@ -54,7 +54,7 @@
 
 " 02 - Plugin/Bundle Related
     packadd! matchit
-    packloadall                 " Load plugins (for utilizing ~/.vim/pack loading in vim 8+)
+    packloadall                 " Load plugins (for utilizing $XDG_CONFIG_HOME/vim/pack loading in vim 8+)
 
     " Pathogen
         execute pathogen#infect()
@@ -67,7 +67,7 @@
         let g:indentLine_enabled = 0    " Disable by default (messes with syntax highlighting)
 
     " Plugin - lightline
-        if isdirectory(expand("~/.vim/bundle/lightline.vim"))
+        if isdirectory(expand("$XDG_CONFIG_HOME/vim/bundle/lightline.vim"))
             let g:lightline = {
                 \ 'active': {
                 \   'left': [ [ 'mode', 'paste' ],
@@ -85,7 +85,7 @@
         map _ <plug>NERDCommenterUncomment
 
     " Plugin - NERDTree related
-        if isdirectory(expand("~/.vim/bundle/nerdtree"))
+        if isdirectory(expand("$XDG_CONFIG_HOME/vim/bundle/nerdtree"))
             " Open NERDTree when opening nothing (just vim)
             "autocmd StdinReadPre * let s:std_in=1
             "autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
@@ -101,7 +101,7 @@
         endif
 
     " Plugin - Tabular
-        if isdirectory(expand("~/.vim/bundle/tabular"))
+        if isdirectory(expand("$XDG_CONFIG_HOME/vim/bundle/tabular"))
             nmap <leader>a& :Tab /&<CR>
             vmap <leader>a& :Tab /&<CR>
             nmap <leader>a# :Tab /#<CR>
@@ -123,7 +123,7 @@
         endif
 
     " Plugin - Vim Snippets (UltiSnips)
-        let g:UltiSnipsSnippetDirectories=["~/.vim/UltiSnips/", "UltiSnips"]    " Add custom snippets
+        let g:UltiSnipsSnippetDirectories=["$XDG_CONFIG_HOME/vim/UltiSnips/", "UltiSnips"]    " Add custom snippets
         let g:UltiSnipsExpandTrigger="<tab>"
         let g:UltiSnipsListSnippets="<c-l>" " list all snippets for current filetype
         let g:UltiSnipsJumpForwardTrigger="<c-j>"
