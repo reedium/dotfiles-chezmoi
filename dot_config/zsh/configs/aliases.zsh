@@ -43,12 +43,15 @@ fi
 alias -g ll='ls -lAhF'
 alias -g l='ls -lhF'
 alias -g ff='find . -name $1'
+
+alias gitlog='git log --graph --abbrev-commit --decorate --date=relative --format=format:"%C(bold red)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold blue)<%an>%C(reset)%C(bold yellow)%d%C(reset)" --all'
+alias gitfix='git diff --name-only | uniq | xargs vim' # Fix git merge conflicts, 1 file at a time
+
 alias digga='dig +nocmd any +multiline +noall +answer'
 alias ipbrief='ip -c -br a'
-alias tm='tmux attach || tmux new'  # attach tmux or start a new session if no sessions
-alias gitlog='git log --graph --abbrev-commit --decorate --date=relative --format=format:"%C(bold red)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold blue)<%an>%C(reset)%C(bold yellow)%d%C(reset)" --all'
 alias mountt='mount | column -t' # Make mount output easier to read
 alias ports='netstat -tulanp'
+alias tm='tmux attach || tmux new'  # attach tmux or start a new session if no sessions
 
 
 #
