@@ -34,7 +34,7 @@ This includes custom profiles for various machines
 # Chezmoi TLDR
 
 ```
-chezmoi init ssh://git@gitea.ryanreed.net:3001/ryanreed/dotfiles-chezmoi.git
+chezmoi init <repo>
 chezmoi apply -n    # Apply changes to ~ (Dry run)
 chezmoi archive     # Create an archive of the dotfiles
 chezmoi cd          # cd to chosmoi source path
@@ -99,10 +99,6 @@ Create the chezmoi configuration at `~/.config/chezmoi/chezmoi.toml`:
 
 [data.code] # Code OSS (VSCode alternative)
     enabled = true
-
-# The following is not currently in use
-[keepassxc]
-    database = "/home/user/database.kdbx"
 ```
 
 
@@ -112,7 +108,7 @@ Chezmoi does not support submodules. However, submodules are how we want to hand
 
 ```
 sh -c "$(curl -fsLS git.io/chezmoi)"
-chezmoi init ssh://git@gitea.ryanreed.net:3001/ryanreed/dotfiles-chezmoi.git
+chezmoi init <repo>
 chezmoi apply -v -n         # Remove -n to actually apply
 ```
 
