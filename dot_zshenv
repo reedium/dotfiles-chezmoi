@@ -4,12 +4,21 @@ export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:="$HOME/.config"}
 export XDG_DATA_HOME=${XDG_DATA_HOME:="$HOME/.local/share"}
 export XDG_STATE_HOME=${XDG_STATE_HOME:="$HOME/.local/state"}
 
-# Move most of ZSH into XDG locations
-export ZDOTDIR="$XDG_CONFIG_HOME"/zsh
-export HISTFILE="$XDG_STATE_HOME"/zsh/history
+# Update various applications to use XDG path
+export XDG_CACHE_HOME=${XDG_CACHE_HOME:="$HOME/.cache"}
+export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:="$HOME/.config"}
+export XDG_DATA_HOME=${XDG_DATA_HOME:="$HOME/.local/share"}
+export XDG_STATE_HOME=${XDG_STATE_HOME:="$HOME/.local/state"}
 
-# Define other XDG location
+export GOPATH="${XDG_DATA_HOME}/go"
+export KDEHOME="${XDG_CONFIG_HOME}/kde"
+export TMUX_TMPDIR="${XDG_RUNTIME_DIR}"
+export PYLINTHOME="${XDG_DATA_HOME}/pylint"
+export PYTHON_EGG_CACHE="${XDG_CACHE_HOME}/python-eggs"
 export VIMINIT="set nocp | source ${XDG_CONFIG_HOME}/vim/vimrc"
+
+export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
+export HISTFILE="${XDG_STATE_HOME}/zsh/history"
 
 
 # Taken from https://github.com/thoughtbot/dotfiles/blob/master/zshenv
