@@ -1,3 +1,10 @@
+# This is sort of hacky and not sure why it's necessary
+# I assumed ~/.zshenv is utilized for all systems but this may not be true?
+# Need to investigate when I have time
+if [ -z "$TMUX_TMPDIR" ]; then
+    source $HOME/.zshenv
+fi
+
 # load custom executable functions
 for function in "$ZDOTDIR"/functions/*; do
   source $function
