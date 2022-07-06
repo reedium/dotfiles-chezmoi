@@ -61,7 +61,7 @@ Check out the README's of the various apps for shortcuts, plugin info, etc:
 | Application | Min Version |
 | ----------- | ----------- |
 | Chezmoi     | 2.3         |
-| Tmux        | 3.0         |
+| Tmux        | 3.3         |
 | Vim         | 8.2         |
 | zsh         | 5.8         |
 
