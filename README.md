@@ -65,7 +65,7 @@ Check out the README's of the various apps for shortcuts, plugin info, etc:
 | Vim         | 8.2         |
 | zsh         | 5.8         |
 
-The above are only the versions that each package was last known working with. It's likely most would work on earlier versions.
+The above are only the versions that each package was last known working with. It's possible earlier versions may work, although not for all applications. For instance, Tmux 3.3 is required for support of `$XDG_` variables (e.g. `$XDG_CONFIG_HOME`)
 
 # Optional Requirements
 
