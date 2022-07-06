@@ -25,7 +25,7 @@
     stripComponents = 1
 [".config/vim/bundle/python-syntax"]
     type = "archive"
-    url = "https://github.com/hdima/python-syntax/archive/master.tar.gz"
+    url = "https://github.com/vim-python/python-syntax/archive/master.tar.gz"
     stripComponents = 1
 [".config/vim/bundle/tabular"]
     type = "archive"
