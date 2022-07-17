@@ -36,6 +36,12 @@ Note: Some features require version 8+ of vim. For instance, the ALE plugin whic
 ```
 
 ## Plugins
+Plugins are managed using [vim-plug](https://github.com/junegunn/vim-plug). `vim-plug` is downloaded automatically on first run.
+
+To update the plugins, run `PlugInstall`
+
+Below is a list of currently installed plugins:
+
 * ~~[Easymotion](https://github.com/easymotion/vim-easymotion) - Easily navigate documents~~ Disabled recently as unused, although useful
 * [Gruvbox](https://github.com/morhetz/gruvbox) - Retro colorscheme (colorscheme in vimrc)
 * ~~[Matchit](https://github.com/adelarsq/vim-matchit) - For expanding % matching (matches start/end tags for html, for example)~~ Disabled recently as possibly unused
